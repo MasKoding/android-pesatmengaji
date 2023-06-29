@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#0A121A">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:theme="@style/Theme.AppCompat.DayNight"
+        >
+
+
+      <androidx.appcompat.widget.SearchView
+          android:id="@+id/search"
+          android:layout_width="@dimen/_280sdp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/_20sdp"
+          app:queryHint="Search ..."
+          app:searchIcon="@drawable/search_icon"
+          android:theme="@style/CustomSearchView"
+          android:gravity="center"
+          android:layoutDirection="rtl"
+          android:layout_gravity="center"
+          android:background="#203C5873"
+
+          >
+
+      </androidx.appcompat.widget.SearchView>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_asmaulhusna"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

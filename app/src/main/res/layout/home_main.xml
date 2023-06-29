@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#0A121A">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#0A121A"
+    tools:context=".HomeMainActivity">
 
     <ImageView
         android:layout_width="@dimen/_250sdp"
@@ -196,6 +198,7 @@
 
 
                             <ImageButton
+                                android:id="@+id/btn_asmaulhusna"
                                 android:layout_width="@dimen/_25sdp"
                                 android:layout_height="@dimen/_25sdp"
                                 android:background="@drawable/gof"/>
@@ -295,14 +298,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <TextClock
                 android:id="@+id/jamm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="@dimen/_35sdp"
                 android:fontFamily="@font/inder"
-                android:text="10.55"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_30ssp"
                 android:textStyle="bold" />
@@ -313,7 +315,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/jamm"
                 android:layout_centerHorizontal="true"
-                android:text="waktu dzuhur 2 jam 55 menit"
+                android:text=""
                 android:textColor="#BEBEBE" />
 
 
@@ -359,6 +361,7 @@
                         android:layout_gravity="center"/>
 
                     <TextView
+                        android:id="@+id/shubuh_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="04.30"
@@ -393,6 +396,7 @@
                         android:layout_gravity="center"/>
 
                     <TextView
+                        android:id="@+id/dhuhur_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="12.00"
@@ -427,6 +431,7 @@
                         android:layout_gravity="center"/>
 
                     <TextView
+                        android:id="@+id/ashar_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="15.25"
@@ -461,6 +466,7 @@
                         android:layout_gravity="center"/>
 
                     <TextView
+                        android:id="@+id/maghrib_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="17.55"
@@ -496,6 +502,7 @@
                         android:layout_gravity="center"/>
 
                     <TextView
+                        android:id="@+id/isya_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="19.00"
