@@ -60,6 +60,7 @@ class HomeMainActivity :AppCompatActivity(){
         isyaTime = findViewById(R.id.isya_time)
         pengingat = findViewById(R.id.pengingat)
 
+        waktuAdzan=""
         jamTextView.format24Hour = "HH:mm"
 
 
@@ -71,6 +72,7 @@ class HomeMainActivity :AppCompatActivity(){
 
 
         onClickAsmaulHusna()
+
 
 
     }
@@ -127,7 +129,7 @@ class HomeMainActivity :AppCompatActivity(){
                             if(minutes<0){
                                 minutes+=60
                             }
-                            if(formatWaktuSekarang.isBefore(nextTimeShubuhPrayer)){
+                            if(formatWaktuSekarang.isAfter(LocalTime.of(20,0))){
 
                                 waktuAdzan ="Isya"
                             }

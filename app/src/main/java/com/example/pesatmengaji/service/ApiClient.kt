@@ -22,6 +22,16 @@ class ApiClient {
         return retrofit
 
     }
+    fun getClientAsmaulHusna():Retrofit{
+        retrofit = Retrofit.Builder()
+            .baseUrl(API_URL.getAsmaulHusnaURl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        return retrofit
+
+    }
+
 
 
 

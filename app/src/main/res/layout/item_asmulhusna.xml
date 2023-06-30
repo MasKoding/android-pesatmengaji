@@ -33,6 +33,7 @@
                         >
                         <TextView
                             android:id="@+id/teks_latin"
+                            android:maxLines="2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Ar Rahman"
@@ -44,9 +45,10 @@
                             />
                         <TextView
                             android:id="@+id/teks_arti"
-
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:maxLines="3"
+                            android:ellipsize="middle"
+                            android:layout_width="@dimen/_130sdp"
+                            android:layout_height="@dimen/_50sdp"
                             android:text="maha pengasih"
                             android:textStyle="bold"
                             android:layout_marginStart="@dimen/_20sdp"
@@ -58,8 +60,9 @@
 
                     <TextView
                         android:id="@+id/teks_arab"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:layout_width="@dimen/_110sdp"
+                        android:layout_height="@dimen/_100sdp"
                         android:text="الرحمن"
                         android:textSize="@dimen/_30sdp"
                         android:fontFamily="@font/inter_bold"
