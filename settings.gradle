@@ -1,8 +1,15 @@
 pluginManagement {
     repositories {
+
+        jcenter()
         gradlePluginPortal()
         google()
         mavenCentral()
+        mavenLocal()
+        google()
+
+
+
     }
 }
 dependencyResolutionManagement {
@@ -10,7 +17,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
+        jcenter()
     }
 }
+
 rootProject.name = "PesatMengaji"
 include ':app'

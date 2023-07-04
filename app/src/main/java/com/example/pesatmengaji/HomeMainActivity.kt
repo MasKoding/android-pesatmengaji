@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.PersistableBundle
 import android.util.Log
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextClock
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -43,6 +44,10 @@ class HomeMainActivity :AppCompatActivity(){
     lateinit var pengingat:TextView
     lateinit var waktuAdzan:String
     lateinit var btnAsmaulhusna:ImageButton
+    lateinit var  compass:ImageButton
+    lateinit var  btnDoa:ImageButton
+    lateinit var  btnHadist:ImageButton
+    lateinit var  btnQuran:ImageButton
 
     private val api:ApiServices by lazy {
         ApiClient().getClient().create(ApiServices::class.java)
@@ -59,6 +64,9 @@ class HomeMainActivity :AppCompatActivity(){
         maghribTime = findViewById(R.id.maghrib_time)
         isyaTime = findViewById(R.id.isya_time)
         pengingat = findViewById(R.id.pengingat)
+        compass = findViewById(R.id.compass_btn)
+
+
 
         waktuAdzan=""
         jamTextView.format24Hour = "HH:mm"
@@ -72,9 +80,43 @@ class HomeMainActivity :AppCompatActivity(){
 
 
         onClickAsmaulHusna()
+        onClickCompass()
+        onClickDoa()
+        onClickHadist()
+        onClickQuran()
 
+    }
 
+    private fun onClickQuran() {
+        btnQuran  = findViewById(R.id.btnAlquran)
+        btnQuran.setOnClickListener {
+            val i = Intent(this,QuranActivity::class.java)
+            startActivity(i)
+        }
+    }
 
+    private fun onClickHadist() {
+        btnHadist  = findViewById(R.id.btnHadist)
+        btnHadist.setOnClickListener {
+            val i = Intent(this,HadistActivity::class.java)
+            startActivity(i)
+        }
+    }
+
+    private fun onClickDoa() {
+        btnDoa = findViewById(R.id.btnDoa)
+        btnDoa.setOnClickListener {
+            val i = Intent(this,DoaActivity::class.java)
+            startActivity(i)
+        }
+
+    }
+
+    private fun onClickCompass() {
+        compass.setOnClickListener {
+            val i = Intent(this,CompassActivity::class.java)
+            startActivity(i)
+        }
     }
 
     private fun onClickAsmaulHusna() {
@@ -129,7 +171,7 @@ class HomeMainActivity :AppCompatActivity(){
                             if(minutes<0){
                                 minutes+=60
                             }
-                            if(formatWaktuSekarang.isAfter(LocalTime.of(20,0))){
+                            if(formatWaktuSekarang.isAfter(LocalTime.of(nextTimeIsyaPrayer.hour,nextTimeIsyaPrayer.minute))){
 
                                 waktuAdzan ="Isya"
                             }

@@ -8,7 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_marginTop="@dimen/_20sdp"
-    android:background="#0A121A"
+
     >
         <RelativeLayout
             android:layout_width="match_parent"

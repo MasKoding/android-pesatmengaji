@@ -1,12 +1,15 @@
 package com.example.pesatmengaji
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.SearchView.SearchAutoComplete
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pesatmengaji.Adapter.AsmaulHusnaAdapter
@@ -22,6 +25,8 @@ class AsmaulHusnaActivity : AppCompatActivity() {
     lateinit var searchAsmulHusna:SearchView
     lateinit var recylerView:RecyclerView
     lateinit var  progressDialog: ProgressDialog
+    lateinit var toolbarAsmaulHusna:Toolbar
+//    lateinit var  viewGaris: View
     private val api: ApiServices by lazy {
         ApiClient().getClientAsmaulHusna().create(ApiServices::class.java)
     }
@@ -32,7 +37,10 @@ class AsmaulHusnaActivity : AppCompatActivity() {
 
         searchAsmulHusna = findViewById(R.id.search)
         recylerView = findViewById(R.id.rv_asmaulhusna)
+        toolbarAsmaulHusna = findViewById(R.id.toolbar_asmaulhusna)
+//        viewGaris = findViewById(R.id.view_garis)
         recylerView.layoutManager =  LinearLayoutManager(this)
+
 
         progressDialog = ProgressDialog(this@AsmaulHusnaActivity)
         progressDialog.setMessage("Loading ...")
@@ -40,16 +48,16 @@ class AsmaulHusnaActivity : AppCompatActivity() {
 
        getAsmaulHusnaList()
 
+        toolbarAsmaulHusna.setNavigationOnClickListener{
+            val i=Intent(this,HomeMainActivity::class.java)
+            startActivity(i)
+        }
+
 
 
         searchAsmulHusna.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-
-                val call = api.getAsmaulHusnaSearch(newText!!)
+                val call = api.getAsmaulHusnaSearch(query!!)
                 progressDialog.show()
                 call.enqueue(object:Callback<AsmulHusna>{
                     override fun onResponse(
@@ -58,10 +66,10 @@ class AsmaulHusnaActivity : AppCompatActivity() {
                     ) {
 
                         progressDialog.dismiss()
-                        if(newText.isEmpty()){
+                        if(query.isEmpty()){
                             getAsmaulHusnaList()
                         }
-                        Log.d("response", "${newText}: and ${response.body()} ")
+                        Log.d("response", "${query}: and ${response.body()} ")
                         val myAsmaulHusnaAdapter = response.body()?.let { AsmaulHusnaAdapter(it) }
                         recylerView.adapter = myAsmaulHusnaAdapter
 
@@ -73,6 +81,11 @@ class AsmaulHusnaActivity : AppCompatActivity() {
                     }
 
                 })
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
                 return false
             }
 

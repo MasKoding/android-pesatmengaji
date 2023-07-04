@@ -1,8 +1,6 @@
 package com.example.pesatmengaji.service
 
-import com.example.pesatmengaji.data.AsmulHusna
-import com.example.pesatmengaji.data.Data
-import com.example.pesatmengaji.data.PrayerTime
+import com.example.pesatmengaji.data.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -18,4 +16,14 @@ interface ApiServices {
 
     @GET("api/search/asmaul_husna/{search}")
     fun getAsmaulHusnaSearch(@Path("search") search:String):Call<AsmulHusna>
+
+    @GET("api/get/doa")
+    fun getDoaList():Call<Doa>
+
+    @GET("api/get/surah")
+    fun getSurahList():Call<Surah>
+
+    @GET("api/get/hadist")
+    fun getHadistList():Call<Hadist>
+
 }

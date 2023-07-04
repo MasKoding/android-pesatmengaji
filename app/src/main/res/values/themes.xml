@@ -28,4 +28,10 @@
         <item name="android:textSize">@dimen/_14ssp</item>
 
     </style>
+
+    <style name="CustomToolbarAsmaulHusna" parent="Widget.AppCompat.Toolbar">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textAppearance">@style/CustomTextAppearance</item>
+        <item name="android:background">@drawable/border_bottom_toolbar</item>
+    </style>
 </resources>
