@@ -9,6 +9,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pesatmengaji.Adapter.DoaAdapter
+import com.example.pesatmengaji.Adapter.SurahAdapter
 import com.example.pesatmengaji.data.Doa
 import com.example.pesatmengaji.data.Surah
 import com.example.pesatmengaji.service.ApiClient
@@ -18,7 +19,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class QuranActivity : AppCompatActivity() {
-    lateinit var doaList: Surah
+    lateinit var SurahList: Surah
 
     lateinit var rvSurah: RecyclerView
     lateinit var toolbarSurah: Toolbar
@@ -50,12 +51,12 @@ class QuranActivity : AppCompatActivity() {
     }
 
     private fun getListSurah() {
-        api.getDoaList().enqueue(object : Callback<Doa> {
-            override fun onResponse(call: Call<Doa>, response: Response<Doa>) {
-                rvSurah!!.adapter = response.body()?.let { DoaAdapter(it) }
+        api.getSurahList().enqueue(object : Callback<Surah> {
+            override fun onResponse(call: Call<Surah>, response: Response<Surah>) {
+                rvSurah!!.adapter = response.body()?.let { SurahAdapter(it) }
             }
 
-            override fun onFailure(call: Call<Doa>, t: Throwable) {
+            override fun onFailure(call: Call<Surah>, t: Throwable) {
                 Log.d("failed", "${t.message}: ")
             }
 

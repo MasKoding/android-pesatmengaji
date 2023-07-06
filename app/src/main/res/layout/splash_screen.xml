@@ -13,7 +13,7 @@
         android:layout_height="@dimen/_100sdp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_200sdp"
-        android:background="@drawable/bulan_sabit"
+        android:background="@drawable/sabitnigga"
         android:translationZ="100dp"
         tools:ignore="MissingConstraints"
         android:visibility="gone"
@@ -22,7 +22,7 @@
     <ImageView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:src="@drawable/splash1"
+    android:src="@drawable/splashscreendark"
     android:scaleType="centerCrop"
 
     />
